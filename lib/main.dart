@@ -30,13 +30,66 @@ class _StoryPageState extends State<StoryPage> {
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('img/background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Image.asset('background.png'),
               Expanded(
                 flex: 12,
-                child: Center(),
+                child: Center(
+                  child: Text(
+                    'Story Text Will Go Here',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: TextButton(
+                  onPressed: () {
+                    //Choice 1 made by user.
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.green,
+                  ),
+                  child: Text(
+                    'Choice 1',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Expanded(
+                flex: 2,
+                child: TextButton(
+                  onPressed: () {
+                    //Choice 2 made by user.
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: Text(
+                    'Choice 2',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
