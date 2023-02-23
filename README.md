@@ -19,9 +19,9 @@ A Story Prediction Gameplay with Text
 //TODO: Step 19 - Call the nextStory() method from storyBrain and pass the number 2 as the choice made by the user.
 //TODO: Step 14 - Use the storyBrain to get the text for choice 2.
 //TODO: Step 24 - Run the app and try to figure out what code you need to add to this file to make the story change when you press on the choice buttons.
-//TODO: Step 29 - Run the app and test it against the Story Outline to make sure you've completed all the steps. The code for the completed app can be found here: https://github.com/londonappbrewery/destini-challenge-completed/
+//TODO: Step 29 - Run the app and test it against the Story Outline to make sure you've completed all the steps. 
 
-//story.dart
+// Story.dart
 
 //TODO: Step 2 - Create a new class called Story.
 
