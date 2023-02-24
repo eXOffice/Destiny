@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:destiny/storyBrain.dart';
 
 void main() {
   runApp(Destiny());
@@ -16,6 +17,8 @@ class Destiny extends StatelessWidget {
   }
 }
 
+//TODO: Step 9 - Create a new storyBrain object from the StoryBrain class.
+
 class StoryPage extends StatefulWidget {
   const StoryPage({Key? key}) : super(key: key);
 
@@ -24,6 +27,8 @@ class StoryPage extends StatefulWidget {
 }
 
 class _StoryPageState extends State<StoryPage> {
+  StoryBrain storyBrain = StoryBrain();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +50,7 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 12,
                 child: Center(
                   child: Text(
-                    'Story Text Will Go Here',
+                    storyBrain.getStory(),
                     style: TextStyle(
                       fontSize: 25.0,
                     ),
@@ -63,7 +68,7 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: Colors.green,
                   ),
                   child: Text(
-                    'Choice 1',
+                    storyBrain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
@@ -84,7 +89,7 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: Colors.blue,
                   ),
                   child: Text(
-                    'Choice 2',
+                    storyBrain.getChoice2(),
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
