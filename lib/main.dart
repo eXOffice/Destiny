@@ -17,8 +17,6 @@ class Destiny extends StatelessWidget {
   }
 }
 
-//TODO: Step 9 - Create a new storyBrain object from the StoryBrain class.
-
 class StoryPage extends StatefulWidget {
   const StoryPage({Key? key}) : super(key: key);
 
@@ -59,18 +57,25 @@ class _StoryPageState extends State<StoryPage> {
               ),
               Expanded(
                 flex: 2,
-                child: TextButton(
-                  onPressed: () {
-                    //Choice 1 made by user.
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.green,
-                  ),
-                  child: Text(
-                    storyBrain.getChoice1(),
-                    style: TextStyle(
-                      fontSize: 20.0,
+                child: Visibility(
+                  //visible: storyBrain.buttonShouldVisible(),
+                  child: TextButton(
+                    onPressed: () {
+                      //Choice 1 made by user.
+                      //storyBrain.nextStory(1);
+                      setState(() {
+                        storyBrain.nextStory(1);
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.green,
+                    ),
+                    child: Text(
+                      storyBrain.getChoice1(),
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
                     ),
                   ),
                 ),
@@ -80,18 +85,24 @@ class _StoryPageState extends State<StoryPage> {
               ),
               Expanded(
                 flex: 2,
-                child: TextButton(
-                  onPressed: () {
-                    //Choice 2 made by user.
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.blue,
-                  ),
-                  child: Text(
-                    storyBrain.getChoice2(),
-                    style: TextStyle(
-                      fontSize: 20.0,
+                child: Visibility(
+                  visible: storyBrain.buttonShouldVisible(),
+                  child: TextButton(
+                    onPressed: () {
+                      //Choice 2 made by user.
+                      setState(() {
+                        storyBrain.nextStory(2);
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: Text(
+                      storyBrain.getChoice2(),
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
                     ),
                   ),
                 ),

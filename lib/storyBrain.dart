@@ -1,7 +1,8 @@
 import 'package:destiny/story.dart';
 
 class StoryBrain {
-  List<Story> _storyData = [
+  int _storyNumber = 0;
+  final List<Story> _storyData = [
     Story(
         storyTitle:
             'Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: "Need a ride, boy?".',
@@ -34,14 +35,40 @@ class StoryBrain {
   ];
 
   String getStory() {
-    return _storyData[0].storyTitle ?? '';
+    return _storyData[_storyNumber].storyTitle ?? '';
   }
 
   String getChoice1() {
-    return _storyData[0].choice1 ?? '';
+    return _storyData[_storyNumber].choice1 ?? '';
   }
 
   String getChoice2() {
-    return _storyData[0].choice2 ?? '';
+    return _storyData[_storyNumber].choice2 ?? '';
+  }
+
+  void restart() {
+    _storyNumber = 0;
+  }
+
+  void nextStory(int choiceNumber) {
+    Map<int, List> storyPlan = {
+      1: [2, 2, 5, 0, 0, 0],
+      2: [1, 3, 4, 0, 0, 0],
+    };
+
+    _storyNumber = storyPlan[choiceNumber]![_storyNumber];
+
+    if (_storyNumber == 0) {
+      restart();
+    }
+  }
+
+  bool buttonShouldVisible() {
+    //return _storyNumber<3; // Also work this logic , same !
+    if (_storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
